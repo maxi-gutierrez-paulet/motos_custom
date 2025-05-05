@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Blog de Motos Custom</title>
+	<link rel="stylesheet" href="styles.css">
+	<style>
+		/* Estilos generales */
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: 'Roboto', sans-serif;
+			background-color: #f7f7f7;
+			color: #333;
+			line-height: 1.6;
+		}
+
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 20px;
+		}
+
+		header {
+			background-color: #000000;
+			color: #ffffff;
+			padding: 20px 0;
+			text-align: center;
+			margin-bottom: 20px;
+		}
+
+		header h1 {
+			font-family: 'Playfair Display', serif;
+			font-size: 2.5rem;
+		}
+
+		nav {
+			margin: 20px 0;
+		}
+
+		nav ul {
+			list-style: none;
+			display: flex;
+			justify-content: center;
+			gap: 15px;
+		}
+
+		nav a {
+			color: #ffffff;
+			text-decoration: none;
+			padding: 10px 15px;
+			background-color: #007BFF;
+			border-radius: 5px;
+			transition: background-color 0.3s;
+		}
+
+		nav a:hover {
+			background-color: #0056b3;
+		}
+
+		.blog-content {
+			display: flex;
+			gap: 20px;
+		}
+
+		.main-content {
+			flex: 3;
+		}
+
+		.sidebar {
+			flex: 1;
+			background-color: #ffffff;
+			padding: 20px;
+			border-radius: 8px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		}
+
+		.sidebar h2 {
+			font-size: 1.5rem;
+			margin-bottom: 15px;
+		}
+
+		.post {
+			background-color: #ffffff;
+			margin-bottom: 20px;
+			padding: 20px;
+			border-radius: 8px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		}
+
+		.post h2 {
+			font-size: 2rem;
+			color: #333;
+			margin-bottom: 10px;
+		}
+
+		.post img {
+			max-width: 100%;
+			border-radius: 8px;
+			margin-bottom: 15px;
+		}
+
+		.post p {
+			margin-bottom: 10px;
+			text-align: justify;
+		}
+
+		.read-more {
+			background-color: #007BFF;
+			color: #ffffff;
+			padding: 10px 20px;
+			text-decoration: none;
+			border-radius: 5px;
+			transition: background-color 0.3s;
+			display: inline-block;
+		}
+
+		.read-more:hover {
+			background-color: #0056b3;
+		}
+
+		.footer {
+			background-color: #000000;
+			color: #ffffff;
+			text-align: center;
+			padding: 10px;
+			margin-top: 20px;
+		}
+
+		/* Estilos responsivos */
+		@media (max-width: 768px) {
+			.blog-content {
+				flex-direction: column;
+			}
+
+			nav ul {
+				flex-direction: column;
+				gap: 10px;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<h1>Blog de Motos Custom</h1>
+		<nav>
+			<ul>
+				
+				<li><a href="#" onclick="document.getElementById('harleyAudio').play()">Reproducir sonido Harley</a></li>
+				<li><a href="#" onclick="document.getElementById('harleyAudio').pause()">Pausar Harley</a></li>
+			</ul>
+		</nav>
+		<audio id="harleyAudio" src="audios/ride-on-a-harley-17367.mp3"></audio>
+		</header>
+
+	<div class="container">
+		<div class="blog-content">
+			<div class="main-content">
+				<!-- Entrada de blog 1 -->
+				<div class="post">
+					<h2>El Arte de Personalizar tu Moto Custom</h2>
+					<img src="images/fondo.jpg" alt="Moto Custom Personalizada">
+					<p>Personalizar una moto custom es una forma de expresión única para los amantes de las dos ruedas.
+						Desde modificaciones en el chasis hasta trabajos de pintura detallados, cada moto cuenta una
+						historia. En esta entrada, exploraremos las mejores prácticas para personalizar tu propia moto.
+					
+				</div>
+
+				<!-- Entrada de blog 2 -->
+				<div class="post">
+					<h2>Harley-Davidson: Historia y Legado</h2>
+					<img src="images/Chopper.JPG" alt="Harley-Davidson">
+					<p>Harley-Davidson es sinónimo de libertad y rebeldía sobre dos ruedas. Desde su fundación en 1903,
+						ha sido una marca emblemática en el mundo de las motos custom. En este artículo, hacemos un
+						recorrido por la historia de esta icónica marca y su influencia en la cultura motociclista.</p>
+				
+				</div>
+
+				<!-- Entrada de blog 3 -->
+				<div class="post">
+					<h2>Top 5 Motos Custom para Empezar</h2>
+					<img src="images/Rat_Bike.JPG" alt="Top 5 Motos Custom">
+					<p>Si estás pensando en adentrarte en el mundo de las motos custom, te presentamos las cinco mejores
+						opciones para comenzar. Desde la clásica Harley-Davidson Sportster hasta la accesible Indian
+						Scout, descubre cuál se adapta mejor a tu estilo y necesidades.</p>
+					
+				</div>
+			</div>
+
+			<aside class="sidebar">
+				<h2>Categorías</h2>
+				<ul>
+					<li><a href="#">Historia de Motos</a></li>
+					<li><a href="#">Personalización</a></li>
+					<li><a href="#">Motos Clásicas</a></li>
+					<li><a href="#">Accesorios</a></li>
+					<li><a href="#">Consejos para Principiantes</a></li>
+				</ul>
+
+				<h2>Entradas Recientes</h2>
+				<ul>
+					<li><a href="#">Cómo Elegir tu Primera Moto Custom</a></li>
+					<li><a href="#">Mantenimiento Básico para Tu Moto</a></li>
+					<li><a href="#">Rutas Imperdibles para Moteros</a></li>
+					<li><a href="#">El Futuro de las Motos Custom Eléctricas</a></li>
+				</ul>
+			</aside>
+		</div>
+	</div>
+
+	<footer class="footer">
+		<p>&copy; 2024 Blog de Motos Custom. Todos los derechos reservados.</p>
+	</footer>
+	
+</body>
+
+</html>

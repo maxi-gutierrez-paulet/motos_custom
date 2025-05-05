@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Blog - Motos Custom</title>
+	<link rel="stylesheet" href="css/styles.css">
+	<style>
+		/* Estilos generales para el fondo oscuro */
+		body {
+			background-color: #333;
+			color: #fff;
+			background-image: url('images/fodo_blog.png');
+			/* Ruta de la imagen de fondo */
+			background-size: cover;
+			background-position: center;
+			background-attachment: fixed;
+			font-family: 'Roboto', sans-serif;
+		}
+
+		/* Estilo para los breadcrumbs */
+		.breadcrumb {
+			background-color: rgba(0, 0, 0, 0.7);
+			padding: 10px 20px;
+			border-bottom: 1px solid #ccc;
+			font-size: 14px;
+		}
+
+		.breadcrumb ul {
+			list-style: none;
+			display: flex;
+			gap: 5px;
+			margin: 0;
+			padding: 0;
+		}
+
+		.breadcrumb li {
+			display: inline;
+		}
+
+		.breadcrumb a {
+			text-decoration: none;
+			color: #007BFF;
+			font-weight: bold;
+		}
+
+		.breadcrumb a:hover {
+			text-decoration: underline;
+		}
+
+		.breadcrumb li::after {
+			content: ">";
+			margin: 0 5px;
+			color: #fff;
+		}
+
+		.breadcrumb li:last-child::after {
+			content: "";
+		}
+
+		/* Estilos para los comentarios */
+		.comentarios {
+			background-color: rgba(0, 0, 0, 0.7);
+			padding: 20px;
+			border-radius: 8px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+			max-width: 900px;
+			margin: 40px auto;
+		}
+
+		.comentarios h2 {
+			font-size: 1.8rem;
+			margin-bottom: 10px;
+		}
+
+		.comentarios form {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.comentarios label {
+			margin-bottom: 5px;
+			font-weight: bold;
+		}
+
+		.comentarios input,
+		.comentarios textarea {
+			padding: 10px;
+			margin-bottom: 15px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			font-size: 1rem;
+		}
+
+		.comentarios button {
+			background-color: #007BFF;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+
+		.comentarios button:hover {
+			background-color: #0056b3;
+		}
+
+		/* Estilos para mostrar los comentarios */
+		#comentariosLista {
+			margin-top: 20px;
+		}
+
+		#comentarios li {
+			background: #f1f1f1;
+			/* Fondo claro */
+			padding: 10px;
+			margin-bottom: 10px;
+			border-radius: 4px;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+			color: #333;
+			/* Texto oscuro para mejorar la legibilidad */
+		}
+
+		#comentarios strong {
+			font-weight: bold;
+			color: #000;
+			/* Negrita en color negro para los nombres */
+		}
+
+		#comentarios em {
+			color: #666;
+			/* Color gris claro para la fecha y hora */
+		}
+	</style>
+</head>
+
+<body>
+
+	<!-- Breadcrumb -->
+	<nav class="breadcrumb">
+		<ul>
+			<li><a href="index.html">Foro</a></li>
+			<li>Comentarios</li>
+		</ul>
+	</nav>
+
+
+
+	<section class="comentarios">
+		<h2>Deja tu Comentario</h2>
+		<form id="comentarioForm">
+			<label for="usuario">Nombre/Usuario:</label>
+			<input type="text" id="usuario" name="usuario" required>
+
+			<label for="comentario">Comentario:</label>
+			<textarea id="comentario" name="comentario" rows="4" required></textarea>
+
+			<button type="submit">Enviar Comentario</button>
+		</form>
+
+		<div id="comentariosLista">
+			<h3>Comentarios:</h3>
+			<ul id="comentarios">
+				<!-- Todos los comentarios se mostrarán aquí -->
+			</ul>
+		</div>
+	</section>
+
+	<script src="scripts/main.js"></script>
+
+	<script>
+		// Obtener el formulario y el contenedor de comentarios
+		const comentarioForm = document.getElementById("comentarioForm");
+		const comentariosLista = document.getElementById("comentarios");
+
+		// Recuperar los comentarios guardados en el localStorage
+		const comentariosGuardados = JSON.parse(localStorage.getItem("comentarios")) || [];
+
+		// Función para cargar los comentarios almacenados
+		function cargarComentarios() {
+			comentariosLista.innerHTML = '';
+			comentariosGuardados.forEach((comentario) => {
+				const nuevoComentario = document.createElement("li");
+				nuevoComentario.innerHTML = `<strong>${comentario.usuario}</strong>: ${comentario.comentario} <br><em>Fecha: ${comentario.fecha}</em>`;
+				comentariosLista.appendChild(nuevoComentario);
+			});
+		}
+
+		// Función para manejar el envío de comentarios
+		comentarioForm.addEventListener("submit", function (e) {
+			e.preventDefault();
+
+			// Obtén el nombre de usuario y el comentario
+			const usuario = document.getElementById("usuario").value;
+			const comentario = document.getElementById("comentario").value;
+
+			// Obtener la fecha y hora actuales
+			const fechaHora = new Date().toLocaleString();
+
+			// Crear un nuevo comentario
+			const nuevoComentario = {
+				usuario: usuario,
+				comentario: comentario,
+				fecha: fechaHora
+			};
+
+			// Guardar el nuevo comentario en el array de comentarios
+			comentariosGuardados.push(nuevoComentario);
+
+			// Guardar los comentarios en el localStorage
+			localStorage.setItem("comentarios", JSON.stringify(comentariosGuardados));
+
+			// Limpiar el formulario
+			comentarioForm.reset();
+
+			// Recargar los comentarios
+			cargarComentarios();
+		});
+
+		// Cargar los comentarios al iniciar la página
+		cargarComentarios();
+	</script>
+
+</body>
+
+</html>

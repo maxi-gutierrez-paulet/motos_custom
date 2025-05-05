@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Explora el mundo de las motos custom con historia, características, y consejos para personalizar tu moto.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Motos Custom</title>
+</head>
+
+
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="Logo" class="logo-img">
+        </div>
+        <nav>
+            <h2>Galería de Motos</h2>
+        </nav>
+    </header>
+
+
+    <main>
+               
+        <button onclick="window.location.href='index.html'" class="boton">Regresar a página principal</button>
+        
+        <section class="motos-gallery" id="motos">
+           
+            <h1 class="gallery-title">Fotos y Vídeos de Motos Custom</h1>
+            
+            <div class="moto-gallery">
+                <!-- Imagen 1 -->
+                <div class="moto-item">
+                    <img src="images/Scrambler.JPG" alt="Scrambler" class="moto-image">
+                    <div class="moto-overlay">
+                        <h3>Scrambler</h3>
+                        <p>Estilo clásico todoterreno</p>
+                    </div>
+                </div>
+                
+                <!-- Imagen 2 -->
+                <div class="moto-item">
+                    <img src="images/Brat_Style.JPG" alt="Brat Style" class="moto-image">
+                    <div class="moto-overlay">
+                        <h3>Brat Style</h3>
+                        <p>Minimalismo japonés</p>
+                    </div>
+                </div>
+                
+                <!-- Imagen 3 -->
+                <div class="moto-item">
+                    <img src="images/Street_Tracker.JPG" alt="Street Tracker" class="moto-image">
+                    <div class="moto-overlay">
+                        <h3>Street Tracker</h3>
+                        <p>Inspiración en carreras</p>
+                    </div>
+                </div>
+                
+                <!-- Imagen 4 -->
+                <div class="moto-item">
+                    <img src="images/Cafe_Racer.JPG" alt="Cafe Racer" class="moto-image">
+                    <div class="moto-overlay">
+                        <h3>Cafe Racer</h3>
+                        <p>Velocidad y elegancia</p>
+                    </div>
+                </div>
+                
+                <!-- Imagen 5 -->
+                <div class="moto-item">
+                    <img src="images/Bagger.JPG" alt="Bagger" class="moto-image">
+                    <div class="moto-overlay">
+                        <h3>Bagger</h3>
+                        <p>Grandes maletas touring</p>
+                    </div>
+                </div>
+                
+                <!-- Imagen 6 -->
+                <div class="moto-item">
+                    <img src="images/Rat_Bike.JPG" alt="Rat Bike" class="moto-image">
+                    <div class="moto-overlay">
+                        <h3>Rat Bike</h3>
+                        <p>Estilo descuidado calculado</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Lightbox para imágenes ampliadas -->
+        <div id="lightbox" class="lightbox">
+            <span class="close-btn">&times;</span>
+            <img class="lightbox-content" id="lightbox-img">
+            <div id="caption"></div>
+        </div>
+        
+        <script src="css/scripts.js"></script>
+        
+        </section>
+
+
+        <!-- Sección de Vídeos Destacados -->
+        <section class="videos-motos">
+                <h1 class="titulo-videos">Videos Destacados</h1>
+                
+                <div class="contenedor-videos">
+                    <!-- Video 1 -->
+                    <div class="video-moto">
+                        <div class="marco-video">
+                            <iframe src="https://www.youtube.com/embed/i5-26GSLygs" 
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                        <h3>Custom Bike Build</h3>
+                    </div>
+                    
+                    <!-- Video 2 -->
+                    <div class="video-moto">
+                        <div class="marco-video">
+                            <iframe src="https://www.youtube.com/embed/63q0Xc1UR0E" 
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                        <h3>Harley Davidson Custom</h3>
+                    </div>
+                    
+                    <!-- Video 3 -->
+                    <div class="video-moto">
+                        <div class="marco-video">
+                            <iframe src="https://www.youtube.com/embed/RuESOb01_mk" 
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                        <h3>Chopper Workshop</h3>
+                    </div>
+                    
+                    <!-- Video 4 -->
+                    <div class="video-moto">
+                        <div class="marco-video">
+                            <iframe src="https://www.youtube.com/embed/0i9PIMbAFFg" 
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                        <h3>Bobber Transformation</h3>
+                    </div>
+                    
+                    <!-- Video 5 -->
+                    <div class="video-moto">
+                        <div class="marco-video">
+                            <iframe src="https://www.youtube.com/embed/HhyYILiyo28" 
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                        <h3>Classic Bike Restoration</h3>
+                    </div>
+                    
+                    <!-- Video 6 -->
+                    <div class="video-moto">
+                        <div class="marco-video">
+                            <iframe src="https://www.youtube.com/embed/taFaSu-BeR0?si=QA-tdoZUjVwMeoSj" 
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen>
+                            </iframe>
+                        </div>
+                        <h3>Classic Bike Restoration</h3>
+                    </div>
+
+                </div>
+        </section>
+
+    </main>
+
+    <footer class="motero-footer">
+        <div class="footer-content">
+            <!-- Redes Sociales (Izquierda) -->
+            <div class="footer-left">
+                <h3>Redes Sociales</h3>
+                <div class="social-links">
+                    <a href="https://www.instagram.com" target="_blank">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+                    <a href="https://www.facebook.com" target="_blank">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </a>
+                    <a href="https://www.twitter.com" target="_blank">
+                        <i class="fab fa-twitter"></i> X
+                    </a>
+                    <a href="https://www.youtube.com" target="_blank">
+                        <i class="fab fa-youtube"></i> YouTube
+                    </a>
+                </div>
+            </div>
+    
+            <!-- Contacto (Derecha) -->
+            <div class="footer-right">
+                <h3>Contacto</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> info@motoscustom.com</p>
+                    <p><i class="fas fa-phone"></i> +34 123 456 789</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Calle Motera, 123, Madrid</p>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Copyright (abajo, centrado) -->
+        <div class="copyright">
+            <p>&copy; 2024 Motos Custom. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

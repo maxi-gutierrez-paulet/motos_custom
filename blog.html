@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Motos Custom</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+       
+    </style>
+</head>
+<body>
+    <header class="motero-header">
+        <div class="header-content">
+            <h2>Artículos y Noticias del Mundo Custom</h2>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="talleres.html">Talleres</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="comentarios.html" class="active">Blog</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="blog-container">
+        <section class="blog-hero">
+            <div class="hero-overlay">
+                <p>¿Listo para la experiencia completa? <strong>Activa el sonido</strong> del motor y siente la potencia de las motos custom mientras exploras nuestros artículos.</p>
+                
+                <div class="heartbeat-container">
+                    <div class="heartbeat" id="heartbeat"></div>
+                </div>
+                
+                <div class="audio-controls">
+                    <button id="playBtn" class="audio-btn"><i class="fas fa-play"></i> &nbsp; Reproducir </button>
+                    <button id="pauseBtn" class="audio-btn"><i class="fas fa-pause"></i> &nbsp; Pausar </button>
+                </div>
+            </div>
+            <audio id="harleyAudio">
+                <!-- Fuentes alternativas para mayor compatibilidad -->
+                <source src="audios/ride-on-a-harley-17367.mp3" type="audio/mpeg">
+                <source src="audios/ride-on-a-harley-17367.ogg" type="audio/ogg">
+                Tu navegador no soporta el elemento de audio.
+            </audio>
+            
+            <script>
+                const audio = document.getElementById('harleyAudio');
+                const heartbeat = document.getElementById('heartbeat');
+                const playBtn = document.getElementById('playBtn');
+                const pauseBtn = document.getElementById('pauseBtn');
+            
+                // Precarga el audio al primer click del usuario
+                document.addEventListener('click', function initAudio() {
+                    audio.load();
+                    console.log("Audio precargado");
+                    // Remueve el event listener después de la primera ejecución
+                    document.removeEventListener('click', initAudio);
+                }, { once: true });
+            
+                // Manejo de errores
+                audio.addEventListener('error', function() {
+                    console.error("Error de audio:", audio.error);
+                    alert("Error al cargar el audio. Código: " + audio.error.code);
+                });
+            
+                function playAudio() {
+                    audio.play()
+                        .then(() => {
+                            console.log("Audio reproduciéndose");
+                            heartbeat.style.animationPlayState = 'running';
+                            playBtn.classList.add('audio-playing');
+                            pauseBtn.classList.remove('audio-playing');
+                            heartbeat.style.display = 'block';
+                        })
+                        .catch(error => {
+                            console.error("Error al reproducir:", error);
+                            alert("Haz clic primero en cualquier parte de la página para habilitar el audio, luego vuelve a intentar.");
+                        });
+                }
+                
+                function pauseAudio() {
+                    audio.pause();
+                    heartbeat.style.animationPlayState = 'paused';
+                    playBtn.classList.remove('audio-playing');
+                    heartbeat.style.display = 'none';
+                }
+                
+                // Asignar event listeners correctamente
+                playBtn.addEventListener('click', playAudio);
+                pauseBtn.addEventListener('click', pauseAudio);
+                
+                // Reiniciar cuando termine el audio
+                audio.addEventListener('ended', function() {
+                    playBtn.classList.remove('audio-playing');
+                    heartbeat.style.display = 'none';
+                });
+            </script>
+        </section>
+        
+        <!-- Resto del contenido se mantiene igual -->
+        <section class="blog-content">
+            <div class="main-blog-content">
+                <!-- Artículo 1 -->
+                <article class="blog-post">
+                    <div class="post-header">
+                        <img src="images/blog1.jpg" alt="Personalización de motos" class="post-image">
+                        <div class="post-date">
+                            <span class="day">15</span>
+                            <span class="month">Jun</span>
+                            <span class="year">2024</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <h3>El Arte de Personalizar tu Moto Custom</h3>
+                        <div class="post-meta">
+                            <span><i class="fas fa-user"></i> Por: Carlos Moto</span>
+                            <span><i class="fas fa-tag"></i> Personalización</span>
+                            <span><i class="fas fa-comments"></i> 12 Comentarios</span>
+                        </div>
+                        <p>Personalizar una moto custom es una forma de expresión única para los amantes de las dos ruedas. Desde modificaciones en el chasis hasta trabajos de pintura detallados, cada moto cuenta una historia. En esta entrada, exploraremos las mejores prácticas para personalizar tu propia moto...</p>
+                        <a href="articulo1.html" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Artículo 2 -->
+                <article class="blog-post">
+                    <div class="post-header">
+                        <img src="images/blog2.jpg" alt="Historia de Harley-Davidson" class="post-image">
+                        <div class="post-date">
+                            <span class="day">02</span>
+                            <span class="month">Jun</span>
+                            <span class="year">2024</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <h3>Harley-Davidson: Historia y Legado</h3>
+                        <div class="post-meta">
+                            <span><i class="fas fa-user"></i> Por: Ana Rider</span>
+                            <span><i class="fas fa-tag"></i> Historia</span>
+                            <span><i class="fas fa-comments"></i> 8 Comentarios</span>
+                        </div>
+                        <p>Harley-Davidson es sinónimo de libertad y rebeldía sobre dos ruedas. Desde su fundación en 1903, ha sido una marca emblemática en el mundo de las motos custom. En este artículo, hacemos un recorrido por la historia de esta icónica marca y su influencia en la cultura motociclista...</p>
+                        <a href="articulo2.html" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Artículo 3 -->
+                <article class="blog-post">
+                    <div class="post-header">
+                        <img src="images/blog3.jpg" alt="Top motos custom" class="post-image">
+                        <div class="post-date">
+                            <span class="day">20</span>
+                            <span class="month">May</span>
+                            <span class="year">2024</span>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <h3>Top 5 Motos Custom para Empezar</h3>
+                        <div class="post-meta">
+                            <span><i class="fas fa-user"></i> Por: Luis Custom</span>
+                            <span><i class="fas fa-tag"></i> Guías</span>
+                            <span><i class="fas fa-comments"></i> 15 Comentarios</span>
+                        </div>
+                        <p>Si estás pensando en adentrarte en el mundo de las motos custom, te presentamos las cinco mejores opciones para comenzar. Desde la clásica Harley-Davidson Sportster hasta la accesible Indian Scout, descubre cuál se adapta mejor a tu estilo y necesidades...</p>
+                        <a href="articulo3.html" class="read-more">Leer más <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Paginación -->
+                <div class="pagination">
+                    <a href="#" class="page-link active">1</a>
+                    <a href="#" class="page-link">2</a>
+                    <a href="#" class="page-link">3</a>
+                    <a href="#" class="page-link next">Siguiente <i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+
+            <aside class="blog-sidebar">
+                <!-- Buscador -->
+                <div class="sidebar-widget">
+                    <h3>Buscar en el blog</h3>
+                    <form class="search-form">
+                        <input type="text" placeholder="Escribe aquí...">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+
+                <!-- Categorías -->
+                <div class="sidebar-widget">
+                    <h3>Categorías</h3>
+                    <ul class="categories-list">
+                        <li><a href="#">Historia <span>(12)</span></a></li>
+                        <li><a href="#">Personalización <span>(8)</span></a></li>
+                        <li><a href="#">Tutoriales <span>(5)</span></a></li>
+                        <li><a href="#">Eventos <span>(7)</span></a></li>
+                        <li><a href="#">Entrevistas <span>(3)</span></a></li>
+                        <li><a href="#">Novedades <span>(9)</span></a></li>
+                    </ul>
+                </div>
+
+                <!-- Artículos populares -->
+                <div class="sidebar-widget">
+                    <h3>Artículos Populares</h3>
+                    <div class="popular-post">
+                        <img src="images/popular1.jpg" alt="Artículo popular">
+                        <div class="popular-content">
+                            <h4><a href="#">Cómo Elegir tu Primera Moto Custom</a></h4>
+                            <span><i class="far fa-calendar"></i> 10 Mayo 2024</span>
+                        </div>
+                    </div>
+                    <div class="popular-post">
+                        <img src="images/popular2.jpg" alt="Artículo popular">
+                        <div class="popular-content">
+                            <h4><a href="#">Mantenimiento Básico para Tu Moto</a></h4>
+                            <span><i class="far fa-calendar"></i> 28 Abril 2024</span>
+                        </div>
+                    </div>
+                    <div class="popular-post">
+                        <img src="images/popular3.jpg" alt="Artículo popular">
+                        <div class="popular-content">
+                            <h4><a href="#">Rutas Imperdibles para Moteros</a></h4>
+                            <span><i class="far fa-calendar"></i> 15 Abril 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="sidebar-widget">
+                    <h3>Newsletter</h3>
+                    <p>Suscríbete para recibir los últimos artículos</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Tu correo electrónico">
+                        <button type="submit">Suscribirse</button>
+                    </form>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <footer class="motero-footer">
+        <div class="footer-content">
+            <!-- Redes Sociales (Izquierda) -->
+            <div class="footer-left">
+                <h3>Redes Sociales</h3>
+                <div class="social-links">
+                    <a href="https://www.instagram.com" target="_blank">
+                        <i class="fab fa-instagram"></i> Instagram
+                    </a>
+                    <a href="https://www.facebook.com" target="_blank">
+                        <i class="fab fa-facebook"></i> Facebook
+                    </a>
+                    <a href="https://www.twitter.com" target="_blank">
+                        <i class="fab fa-twitter"></i> X
+                    </a>
+                    <a href="https://www.youtube.com" target="_blank">
+                        <i class="fab fa-youtube"></i> YouTube
+                    </a>
+                </div>
+            </div>
+    
+            <!-- Contacto (Derecha) -->
+            <div class="footer-right">
+                <h3>Contacto</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> info@motoscustom.com</p>
+                    <p><i class="fas fa-phone"></i> +34 123 456 789</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Calle Motera, 123, Madrid</p>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Copyright (abajo, centrado) -->
+        <div class="copyright">
+            <p>&copy; 2024 Motos Custom. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const audio = document.getElementById('harleyAudio');
+        const heartbeat = document.getElementById('heartbeat');
+        const playBtn = document.getElementById('playBtn');
+        const pauseBtn = document.getElementById('pauseBtn');
+    
+        // Manejo de errores del audio
+        audio.addEventListener('error', function() {
+            console.error("Error al cargar el audio:", audio.error);
+            alert("Hubo un problema al cargar el audio. Por favor verifica la consola para más detalles.");
+        });
+    
+        function playAudio() {
+            audio.play()
+                .then(() => {
+                    heartbeat.style.animationPlayState = 'running';
+                    playBtn.classList.add('audio-playing');
+                    pauseBtn.classList.remove('audio-playing');
+                    heartbeat.style.display = 'block';
+                })
+                .catch(error => {
+                    console.error("Error al reproducir:", error);
+                    alert("No se pudo reproducir el audio. Muchos navegadores bloquean la reproducción automática. Haz clic nuevamente o interactúa primero con la página.");
+                });
+        }
+        
+        function pauseAudio() {
+            audio.pause();
+            heartbeat.style.animationPlayState = 'paused';
+            playBtn.classList.remove('audio-playing');
+            heartbeat.style.display = 'none';
+        }
+        
+        audio.addEventListener('ended', function() {
+            playBtn.classList.remove('audio-playing');
+            heartbeat.style.display = 'none';
+        });
+
+        
+    // Agrega esto al final de tu script
+    document.addEventListener('click', function() {
+    // Esto "prepara" el audio al primer click del usuario
+    audio.load();
+    }, { once: true });
+
+   
+    </script>
+
